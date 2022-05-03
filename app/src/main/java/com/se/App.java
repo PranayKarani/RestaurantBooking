@@ -12,6 +12,17 @@ public class App {
     }
 
     // Only for testing purpose. Delete this later on...
+    private static void testUserDataManager() {
+        UserDataManager manager = new UserDataManager();
+        manager.loadAllUsers();
+        for (User u : manager.users.values()) {
+            System.out.println(u.toString());
+        }
+        manager.saveUser(new User("abc", "123"));
+        manager.saveUser(new User("xyf", "123456"));
+    }
+
+    // Only for testing purpose. Delete this later on...
     private static void testQuestions() {
         ArrayList<Question> questions = new ArrayList<>();
         questions.add(new Question("What is your name", Question.Format.TXT));
