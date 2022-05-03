@@ -17,7 +17,7 @@ public class Question {
         }
 
         if (ans.isEmpty()) {
-            return false;
+            return format == Format.NULL;
         }
 
         switch (format) {
@@ -42,8 +42,8 @@ public class Question {
 
     }
 
-    enum Format {
-        YN, NUM, TXT
+    public enum Format {
+        NULL, YN, NUM, TXT
     }
 
 }

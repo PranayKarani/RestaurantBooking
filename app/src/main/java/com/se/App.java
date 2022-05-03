@@ -1,6 +1,8 @@
 
 package com.se;
 
+import com.se.screens.FirstScreen;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +10,19 @@ public class App {
 
     public static void main(String[] args) {
 
+        testFirstScreen();
+
+    }
+
+    // Only for testing purpose. Delete this later on...
+    private static void testFirstScreen() {
+        FirstScreen fs = new FirstScreen();
+        String result = fs.showQuestions();
+        if (result.equals("y")) {
+            System.out.println("go to signup");
+        } else {
+            System.out.println("go to login");
+        }
 
     }
 
