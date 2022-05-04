@@ -1,30 +1,28 @@
 
 package com.se;
 
-import com.se.screens.FirstScreen;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+    UserDataManager userDataManager;
+    NavigationManager navigationManager;
 
     public static void main(String[] args) {
-
-        testFirstScreen();
-
+        App a = new App();
+        a.startApp();
     }
 
-    // Only for testing purpose. Delete this later on...
-    private static void testFirstScreen() {
-        FirstScreen fs = new FirstScreen();
-        String result = fs.showQuestions();
-        if (result.equals("y")) {
-            System.out.println("go to signup");
-        } else {
-            System.out.println("go to login");
-        }
+    public void startApp(){
+        userDataManager = new UserDataManager();
+        navigationManager= new NavigationManager();
+        navigationManager.userDataManager = userDataManager;
 
+        userDataManager.loadAllUsers();
+
+        navigationManager.start();
     }
+
 
     // Only for testing purpose. Delete this later on...
     private static void testUserDataManager() {
@@ -36,6 +34,7 @@ public class App {
         manager.saveUser(new User("abc", "123"));
         manager.saveUser(new User("xyf", "123456"));
     }
+
 
     // Only for testing purpose. Delete this later on...
     private static void testQuestions() {
@@ -64,4 +63,7 @@ public class App {
         System.out.println("done!");
     }
 
+    public Object getGreeting() {
+        return null;
+    }
 }

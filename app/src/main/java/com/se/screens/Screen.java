@@ -9,8 +9,7 @@ public abstract class Screen {
 
     public ArrayList<Question> questions = new ArrayList<>();
     protected int currentIdx = 0;
-    private String returnData;
-
+    protected String returnData; // current active data
     public Screen() {
         initQuestions();
     }
@@ -44,6 +43,7 @@ public abstract class Screen {
 
                 returnData = ans;
                 if (q.isValidAnswer(ans)) {
+                    processData();
                     break;
                 } else {
                     System.out.println("Invalid answer :(");
@@ -63,5 +63,12 @@ public abstract class Screen {
         }
         return returnData;
     }
+    // empty function that is called after every valid user input
+    // by default empty, can be overwritten
+    public void processData(){
+
+    }
+
+
 
 }
