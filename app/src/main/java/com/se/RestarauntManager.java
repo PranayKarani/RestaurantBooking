@@ -6,7 +6,7 @@ import java.util.List;
 public class RestarauntManager {
 
 	int seats = 30;
-	List<Booking> bookingList = new ArrayList<Booking>();
+	public List<Booking> bookingList = new ArrayList<Booking>();
 
 	public boolean checkAvailibility(int noOfPeople) {
 
@@ -20,8 +20,8 @@ public class RestarauntManager {
 		int seatsavailable = seats - total;
 
 		return seatsavailable>=0;
-		
-		
+
+
 	}
 
 }

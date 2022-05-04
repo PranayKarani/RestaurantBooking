@@ -29,12 +29,17 @@ public abstract class Screen {
         Scanner sc = new Scanner(System.in);
 
         for (; currentIdx < questions.size(); ) {
-            Question q = questions.get(currentIdx);
-            System.out.println(q.text);
+            Question question = questions.get(currentIdx);
+            System.out.println(question.text);
 
             boolean goBack = false;
 
             while (true) {
+
+                if (question.answerFormat == Question.Format.NULL) {
+                    break;
+                }
+
                 String ans = sc.nextLine();
 
                 if (ans.equalsIgnoreCase("back")) {
@@ -43,7 +48,10 @@ public abstract class Screen {
                 }
 
                 returnData = ans;
-                if (q.isValidAnswer(ans)) {
+                if (question.isValidAnswer(ans)) {
+                    if (question.ansListener != null) {
+                        question.ansListener.onAnswer(ans);
+                    }
                     break;
                 } else {
                     System.out.println("Invalid answer :(");

@@ -1,12 +1,18 @@
 package com.se;
 
-import java.time.LocalDate;
-
 public class Booking {
-String email;
-String time;
-String date;
-int noOfPeople;
+    public String email;
+    public String time;
+    public String date;
+    public int noOfPeople;
 
-
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "email='" + email + '\'' +
+                ", time='" + time + '\'' +
+                ", date='" + date + '\'' +
+                ", noOfPeople=" + noOfPeople +
+                '}';
+    }
 }

@@ -3,11 +3,18 @@ package com.se;
 public class Question {
 
     public String text;
-    public Format format;
+    public Format answerFormat;
 
-    public Question(String text, Format format) {
+    public AnswerListener ansListener;
+
+    public Question(String text, Format answerFormat) {
         this.text = text;
-        this.format = format;
+        this.answerFormat = answerFormat;
+    }
+
+    public Question setAnswerListener(AnswerListener ansListener) {
+        this.ansListener = ansListener;
+        return this;
     }
 
     public boolean isValidAnswer(String ans) {
@@ -17,10 +24,10 @@ public class Question {
         }
 
         if (ans.isEmpty()) {
-            return format == Format.NULL;
+            return answerFormat == Format.NULL;
         }
 
-        switch (format) {
+        switch (answerFormat) {
             case NUM -> {
                 try {
                     Integer.parseInt(ans);
@@ -35,6 +42,9 @@ public class Question {
                         ans.equalsIgnoreCase("yes") ||
                         ans.equalsIgnoreCase("no");
             }
+            case DATE -> {
+                return true; // TODO check for date pattern
+            }
             default -> { // if format is txt
                 return true;
             }
@@ -43,7 +53,11 @@ public class Question {
     }
 
     public enum Format {
-        NULL, YN, NUM, TXT
+        NULL, YN, NUM, TXT, DATE
+    }
+
+    public interface AnswerListener {
+        void onAnswer(String ans);
     }
 
 }

@@ -1,6 +1,7 @@
 
 package com.se;
 
+import com.se.screens.BookingScreen;
 import com.se.screens.FirstScreen;
 
 import java.util.ArrayList;
@@ -10,9 +11,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        RestarauntManager rm = new RestarauntManager();
-       ;
-        System.out.println( rm.checkAvailibility(24));
+        new BookingScreen().showQuestions();
 
     }
 
