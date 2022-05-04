@@ -3,16 +3,10 @@
  */
 package com.se;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.io.ByteArrayInputStream;
 
 class AppTest {
-	@Test
-	void appHasAGreeting() {
-		App classUnderTest = new App();
-		System.setIn(new ByteArrayInputStream("Jan".getBytes()));
-		assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-	}
+	
 }

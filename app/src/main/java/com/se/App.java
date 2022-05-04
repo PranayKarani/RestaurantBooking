@@ -10,7 +10,9 @@ public class App {
 
     public static void main(String[] args) {
 
-        testFirstScreen();
+        RestarauntManager rm = new RestarauntManager();
+       ;
+        System.out.println( rm.checkAvailibility(24));
 
     }
 
