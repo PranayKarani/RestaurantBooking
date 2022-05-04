@@ -9,7 +9,7 @@ public class FirstScreen extends Screen {
     protected void initQuestions() {
 
         questions.add(new Question("Hello!", Question.Format.NULL));
-        questions.add(new Question("Are you a new User?", Question.Format.YN));
+        questions.add(new Question("Are you a registered User?", Question.Format.YN));
 
     }
 

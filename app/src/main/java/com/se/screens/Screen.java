@@ -10,6 +10,9 @@ public abstract class Screen {
     public ArrayList<Question> questions = new ArrayList<>();
     protected int currentIdx = 0;
     protected String returnData; // current active data
+
+    static String userEmail = "";
+
     public Screen() {
         initQuestions();
     }
@@ -25,8 +28,9 @@ public abstract class Screen {
      * @return answer of the last question. It can ignored also.
      */
     public String showQuestions() {
+        setupBeforeShowingQuestions();
         Scanner sc = new Scanner(System.in);
-
+        currentIdx = 0;
         for (; currentIdx < questions.size(); ) {
             Question question = questions.get(currentIdx);
             System.out.println(question.text);
@@ -35,9 +39,9 @@ public abstract class Screen {
 
             while (true) {
 
-                if (question.answerFormat == Question.Format.NULL) {
-                    break;
-                }
+                // if (question.answerFormat == Question.Format.NULL) {
+                //    break;
+                // }
 
                 String ans = sc.nextLine();
 
@@ -70,12 +74,16 @@ public abstract class Screen {
         }
         return returnData;
     }
+
     // empty function that is called after every valid user input
     // by default empty, can be overwritten
-    public void processData(){
+    public void processData() {
 
     }
 
+    public void setupBeforeShowingQuestions() {
+
+    }
 
 
 }

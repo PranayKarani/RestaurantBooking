@@ -8,11 +8,11 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
+        return "[" +
                 "email='" + email + '\'' +
-                ", time='" + time + '\'' +
-                ", date='" + date + '\'' +
-                ", noOfPeople=" + noOfPeople +
-                '}';
+                "| time='" + time + '\'' +
+                "| date='" + date + '\'' +
+                "| noOfPeople=" + noOfPeople +
+                ']';
     }
 }

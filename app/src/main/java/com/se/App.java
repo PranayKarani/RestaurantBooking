@@ -1,15 +1,13 @@
 
 package com.se;
 
-import com.se.screens.BookingScreen;
-import com.se.screens.FirstScreen;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     UserDataManager userDataManager;
     NavigationManager navigationManager;
+    RestarauntManager manager = new RestarauntManager();
 
     public static void main(String[] args) {
         App a = new App();
@@ -18,11 +16,8 @@ public class App {
 
     public void startApp(){
         userDataManager = new UserDataManager();
-        navigationManager= new NavigationManager();
-        navigationManager.userDataManager = userDataManager;
-
+        navigationManager = new NavigationManager(userDataManager, manager);
         userDataManager.loadAllUsers();
-
         navigationManager.start();
     }
 
