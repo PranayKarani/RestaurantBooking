@@ -27,6 +27,19 @@ public class UserDataManager {
 
     }
 
+    public boolean checkUser(String email) {
+        return users.containsKey(email);
+
+    }
+
+    public boolean authenticateUser(String email, String pw) {
+        if (!checkUser(email)) return false; // error user doesnt exist
+        if (pw.equals( users.get(email).password))
+            return true;
+        else return false;
+
+    }
+
     private void writeUserDataToDisk(Map<String, User> users) {
 
         BufferedWriter bw = null;

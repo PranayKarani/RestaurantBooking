@@ -13,11 +13,11 @@ public class NavigationManager {
 
         String result = fs.showQuestions();
         if (result.equals("y") || result.equals("yes")) {
-            System.out.println("go to signup");
-            testSignupScreen();
-        } else {
             System.out.println("go to login");
             testLoginScreen();
+        } else {
+            System.out.println("go to signup");
+            testSignupScreen();
         }
 
     }
@@ -26,14 +26,26 @@ public class NavigationManager {
         LoginScreen ls = new LoginScreen();
 
         ls.showQuestions();
-        System.out.println(ls.printAllData());
-        // todo authenticate here
+//        System.out.println(ls.printAllData());
+        // authenticate here
+        String[] login = ls.getLoginData();
+        boolean authentication =
+                userDataManager.authenticateUser(login[0],login[1]);
+        if(authentication){
+            // success
+            System.out.println("successful login");
+            // todo go to homescreen
+        }
+        else{
+            System.out.println("error with login data. try again");
+            testLoginScreen();
+        }
     }
 
     private void testSignupScreen() {
         SignupScreen ss = new SignupScreen();
         ss.showQuestions();
-        System.out.println(ss.printAllData());
+//        System.out.println(ss.printAllData());
 
         // store new login data here
         String[] signup = ss.getSignupData();

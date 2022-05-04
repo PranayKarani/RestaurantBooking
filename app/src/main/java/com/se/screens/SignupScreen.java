@@ -22,12 +22,12 @@ public class SignupScreen extends Screen {
         //System.out.println(returnData);
     }
 
-    public String printAllData(){
-        String out = "";
-        for (String i: signupData)
-            out += i + "#";
-        return out;
-    }
+//    public String printAllData(){
+//        String out = "";
+//        for (String i: signupData)
+//            out += i + "#";
+//        return out;
+//    }
     public String[] getSignupData() {
         return signupData;
     }

@@ -22,12 +22,12 @@ public class LoginScreen extends Screen {
         //System.out.println(returnData);
     }
 
-    public String printAllData(){
-        String out = "";
-        for (String i: loginData)
-            out += i + "#";
-        return out;
-    }
+//    public String printAllData(){
+//        String out = "";
+//        for (String i: loginData)
+//            out += i + "#";
+//        return out;
+//    }
     public String[] getLoginData() {
         return loginData;
     }
