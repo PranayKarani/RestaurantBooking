@@ -2,6 +2,8 @@ package com.se;
 
 import com.se.screens.*;
 
+import java.io.IOException;
+
 public class NavigationManager {
 
     UserDataManager userDataManager;
@@ -27,55 +29,18 @@ public class NavigationManager {
 
     }
 
-    // Only for testing purpose. Delete this later on...
-    /*private void testFirstScreen() {
-        FirstScreen fs = new FirstScreen();
-
-        String result = fs.showQuestions();
-        if (result.equals("y") || result.equals("yes")) {
-            System.out.println("go to signup");
-            testSignupScreen();
-        } else {
-            System.out.println("go to login");
-            testLoginScreen();
-        }
-
-    }*/
-
-    /*private void testLoginScreen() {
-        LoginScreen ls = new LoginScreen();
-
-        ls.showQuestions();
-        System.out.println(ls.printAllData());
-        // todo authenticate here
-    }*/
-
-    /*private void testSignupScreen() {
-        SignupScreen ss = new SignupScreen();
-        ss.showQuestions();
-        System.out.println(ss.printAllData());
-
-        // store new login data here
-        String[] signup = ss.getSignupData();
-        userDataManager.saveUser(new User(signup[0], signup[1]));
-
-        System.out.println("List of stored users: ");
-        for (User u : userDataManager.users.values()) {
-            System.out.println(u.toString());
-        }
-
-    }*/
-
     public static void clrscr() {
         //Clears Screen in java
-        /*try {
+        try {
             if (System.getProperty("os.name").contains("Windows"))
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else
+            else {
                 Runtime.getRuntime().exec("clear");
-        } catch (IOException | InterruptedException ex) {}*/
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (IOException | InterruptedException ex) {
+        }
     }
 
     public void start() {
