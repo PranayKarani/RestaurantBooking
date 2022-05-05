@@ -63,6 +63,16 @@ public class UserDataManager {
     }
 
     private Map<String, User> readUserDataFromDisk() {
+
+        File file = new File(fileName);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         Map<String, User> users = new HashMap<>();
         BufferedReader br = null;
         try {
